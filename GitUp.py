@@ -13,7 +13,11 @@ class GitUp(IoString):
     def read(self)->str():
         return super().read_latest()
 
-    def sync(self, message)->bool:
+    def download(self)->bool:
+        state = self._git_pull()
+        return state
+
+    def upload(self, message)->bool:
         state = self._git_add()
         if state:
             state = self._git_commit(message)
@@ -64,9 +68,11 @@ class GitUp(IoString):
 if __name__ == '__main__':
     TEST_MESSAGE = 'nagy'
     test = GitUp(os.getcwd())
+    if not test.download():
+        raise Exception("Error: Unble to pull remote files.")
     if not test.write(TEST_MESSAGE):
         raise Exception("Unable to save file.")
-    if not test.sync("Test case 2"):
+    if not test.upload("Test case 2"):
         raise Exception("Unable to sync file.")
     results = test.read()
     if results != TEST_MESSAGE:
