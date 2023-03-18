@@ -1,13 +1,18 @@
 # GitUp 9000
 Use github as a cross-computer clipboard.
 
-Testing success.
+## Backstory
+I need to copy and paste much into "AboutTime." So imagine my angst when a recent upgrade shut-down my ability to move data out of my 'Dev environment?
+
+Necessity being the invention of 'Mother (or something like that) this morning I cobbled **GitUp 9000** together so we might use a safe, approved & ubiquitous way to copy & paste text between multiple computers.
+
+Status: **Testing success.**
 
 - Adding an `argparse` is on the "comming soon" list.
 
 Caring is what sharing ... does!
 
-== Randall
+-- Randall
 
 
 ## zSupport?
