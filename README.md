@@ -1,2 +1,2 @@
 # gitup
-Use github as an cross-computer clipboard.
+Use github as a cross-computer clipboard.
