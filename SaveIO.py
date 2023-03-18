@@ -108,7 +108,7 @@ if __name__ == '__main__':
         raise Exception("Unable to read file.")
     results = test.list_all()
     if not results:
-        raise Exception("Unable list file.")
+        raise Exception("Unable to list file.")
     success = False
     if len(results) == 1:
         test.remove_all_files()
@@ -116,6 +116,6 @@ if __name__ == '__main__':
             print("Testing success.")
             success = True
     if not success:
-        print("Testing regression.")
+        print("Error: Regression.")
         
     
