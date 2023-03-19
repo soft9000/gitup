@@ -60,13 +60,14 @@ class GitUp(IoString):
                 print(*proc)
             success = True
         except Exception as ex:
-            os.chdir(pwd)
             print(ex)
+        finally:
+            os.chdir(pwd)
         return success
     
 
 if __name__ == '__main__':
-    TEST_MESSAGE = 'nagy'
+    TEST_MESSAGE = 'nagy ᚶ 9000'
     test = GitUp(os.getcwd())
     if not test.download():
         raise Exception("Error: Unble to pull remote files.")
