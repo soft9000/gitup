@@ -86,13 +86,13 @@ class IoString:
         afile = nodes[-1]
         if not afile:
             return None
-        with open(afile) as fh:
+        with open(self.git_folder + afile) as fh:
             return HexED16.decode(fh.read())
 
     def remove_all_files(self)->bool:
         for node in self.list_all():
-            os.remove(node)
-            if os.path.exists(node):
+            os.remove(self.git_folder + node)
+            if os.path.exists(self.git_folder + node):
                 return False
         return True
 

@@ -1,6 +1,9 @@
 import os
 
-from SaveIO import IoString as IoString
+import sys
+sys.path.append("..")
+
+from gitup.SaveIO import IoString as IoString
 
 class GitUp(IoString):
 
@@ -24,6 +27,9 @@ class GitUp(IoString):
         if state == True:
             state = self._git_push()
         return state
+    
+    def remove_all_files(self)->bool:
+        return self._git_exec(['rm', f"*{self.file_type}"])   
 
     def _git_pull(self)->int:
         return self._git_exec(['pull'])
@@ -54,8 +60,6 @@ class GitUp(IoString):
         pwd = os.getcwd()
         try:
             os.chdir(self.git_folder)
-            if os.getcwd() != self.git_folder:
-                raise Exception(f"Error: Unable to change to [{self.git_folder}]")
             with os.popen(commands.strip()) as proc:
                 print(*proc)
             success = True
